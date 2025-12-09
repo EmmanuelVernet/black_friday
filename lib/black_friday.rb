@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "black_friday/version"
-require "activesupport/all"
+require "active_support/all"
 
 module BlackFriday
   class Error < StandardError; end
