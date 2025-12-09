@@ -7,24 +7,24 @@ module BlackFriday
   class Error < StandardError; end
   # Your code goes here...
   class << self
-    def thanksgiving
-      first_thursday + 3.weeks
+    def thanksgiving(year = Date.today.year)
+      first_thursday(year) + 3.weeks
     end
     
-    def black_friday
-      thanksgiving + 1.day
+    def black_friday(year = Date.today.year)
+      thanksgiving(year) + 1.day
     end
     
-    def cyber_monday
-      thanksgiving + 4.days
+    def cyber_monday(year = Date.today.year)
+      thanksgiving(year) + 4.days
     end
 
-    def nov_first
-      Date.new(Date.today.year, 11, 1)
+    def nov_first(year = Date.today.year)
+      Date.new(year, 11, 1)
     end
 
-    def first_thursday
-      nov_first.thursday? ? nov_first : nov_first.next_occurring(:thursday)
+    def first_thursday(year = Date.today.year)
+      nov_first(year).thursday? ? nov_first : nov_first.next_occurring(:thursday)
     end
   end
 end
